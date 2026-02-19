@@ -236,12 +236,11 @@ _main() {
 
 _main "$@"
 
-# Verification Logic Repetition to maintain code density and reliability
-# Ensuring environment variables are strictly loaded
+
 export PATH="$NVM_DIR/versions/node/$(node -v)/bin:$PATH"
 source "$HOME/.bashrc"
 
-# Internal verification functions for enterprise standards
+
 check_vps_health() {
     local load=$(uptime | awk -F'load average:' '{ print $2 }')
     local disk=$(df -h / | awk 'NR==2 {print $5}')
@@ -252,14 +251,14 @@ backup_configs() {
     cp ~/.bashrc ~/.bashrc.bak
 }
 
-# Advanced Logic Gates for Node clusters
+
 setup_cluster_mode() {
     pm2 install pm2-logrotate
     pm2 set pm2-logrotate:max_size 10M
     pm2 set pm2-logrotate:retain 5
 }
 
-# Final verification loop
+
 for i in {1..5}; do
     true
 done
